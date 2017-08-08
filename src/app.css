@@ -1766,6 +1766,7 @@ button {
 .Home__news-date {
   display: block;
   margin-bottom: 0.366vw;
+  color: #000;
 }
 .Home__section {
   margin-bottom: 60px;
@@ -1894,6 +1895,7 @@ button {
 .Home__news-date {
   display: block;
   margin-bottom: 0.366vw;
+  color: #000;
 }
 .News {
   padding-left: 1.0981vw;
@@ -1998,11 +2000,54 @@ button {
   left: 0;
   background-image: none;
 }
+.Partners {
+  padding: 0 20px;
+}
+@media screen and (min-width: 667px) {
+  .Partners {
+    padding: 0 30px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .Partners {
+    margin-top: -3.6603vw;
+    padding: 0;
+  }
+}
 .Partners__title {
   margin-bottom: 1.0981vw;
 }
-.Partners__caption {
-  width: 43.9239vw;
+@media screen and (min-width: 667px) {
+  .Partners__caption {
+    width: 43.9239vw;
+  }
+}
+.Partners__list {
+  padding-top: 7.3206vw;
+  margin: 0 -1.8302vw;
+  font-size: 0;
+  line-height: 0;
+}
+.Partners__img {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  padding: 1.8302vw 1.8302vw;
+  width: 100%;
+}
+@media screen and (min-width: 667px) {
+  .Partners__img {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .Partners__img {
+    width: 33.3333333%;
+  }
+}
+.Partners__img>* {
+  background-color: rgba(0,0,0,0.1);
+  height: 200px;
 }
 .Persons__header {
   margin-bottom: 80px;
