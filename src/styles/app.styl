@@ -1,0 +1,113 @@
+@import 'normalize.css'
+
+@import './settings'
+@import './typography'
+
+@import './components/_components'
+@import './containers/_containers'
+
+// Base
+// ----------------------------------------------------------------------------
+
+html,
+body
+  margin 0
+  padding 0
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale  
+  -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+  -webkit-tap-highlight-color transparent
+  -moz-hyphens auto
+  -webkit-hyphens auto
+  -ms-hyphens auto
+  Medium()
+  cursor default
+  
+body
+  &.is-freeze
+    overflow hidden
+    
+  
+  
+::selection
+  background #ff8e74
+
+svg
+  display block
+  width 100%
+  
+a
+  text-decoration none
+  color inherit
+  
+h1,
+h2
+  font-weight normal
+
+.nobr
+  white-space nowrap
+  
+input
+  background-color transparent
+  border none
+  outline none
+  margin 0
+  padding 0
+  color inherit
+  Medium()
+
+.Wrap
+  background-color $white
+  position relative
+  color $black 
+  &._light
+    color $white  
+
+.Content
+  padding-top 80px
+  transition opacity 400ms 400ms
+  min-height 100%
+  @media $large
+    padding-top vw(150)
+  &.Content_disable
+    opacity 0
+  .is-animate &
+    transition-delay 0ms
+    opacity 0
+    
+.Container
+  position relative
+  overflow hidden
+  @media $large
+    padding 0 vw(40)
+  &_top-negative
+    margin-top -80px
+    @media $large
+      margin-top vw(-50)
+  &_no-top
+    margin-top vw(-150)
+    padding 0
+
+.Row
+  display flex
+  align-content space-between
+  margin 0 vw(-25)
+    
+.Background
+  position absolute
+  top 0
+  left 0
+  bottom 0
+  background-color $orange
+  width 100%
+  opacity 0 
+  transition opacity 300ms
+  @media $large
+    opacity 1
+    transition transform 300ms ease-out 
+    transform translate3d(-100%, 0, 0)
+  &.Background_full
+      opacity 1
+      transform translate3d(0, 0, 0)
+  &.Background_half
+    transform translate3d(-51.8301610542%, 0, 0)

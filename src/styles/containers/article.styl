@@ -1,0 +1,54 @@
+.Article
+  &__hero
+    position relative
+    height 100vh
+    overflow hidden
+    margin-bottom vw(60)
+    &::after
+      content ''
+      position absolute
+      left 0
+      right 0
+      bottom 0
+      height 50%
+      background-color transparent
+      background linear-gradient(to top, $white 0%, alpha($white, 60%) 60%, alpha($white, 0%) 100%)
+    img
+      display block
+      top -999px
+      bottom -999px
+      left -999px
+      right -999px
+      width auto
+      height auto
+      margin auto
+      position absolute
+  &__headline
+    position absolute
+    bottom vw(30)
+    left 0
+    z-index 9
+    padding 0 vw(40)
+    max-width 80%
+  &__content
+    padding 0 vw(40)
+    margin-bottom vw(80)
+    position relative
+    p
+      max-width vw(620)
+      margin 0 auto 1em
+    figure
+      margin vw(60) auto
+      width vw(950)
+    figcaption
+      width vw(620)
+      margin vw(20) auto
+    img
+      display block
+      width 100%
+  &__share
+    position absolute
+    top 0
+  &__comments
+    width vw(620)
+    margin 0 auto

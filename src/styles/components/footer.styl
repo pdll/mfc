@@ -1,0 +1,64 @@
+.Footer
+  overflow-x hidden
+  padding 120px 0 30px
+  position relative
+  @media $medium
+    padding 150px 0 30px
+  @media $large
+    padding vw(200) 0 vw(40)
+
+.Footer__body
+  @media $medium
+    padding 0 10px
+    display flex
+  @media $large
+    margin 0 vw(-25)
+    padding 0 vw(40)
+  
+.Footer__col
+  margin 0 20px 20px
+  font-size 20px
+  line-height 1.4
+  &_lg
+    @media $medium
+      display none
+    @media $large
+      display block
+  &_md
+    margin 20px 0 0
+    display none
+    @media $medium
+      display block
+    @media $large
+      display none
+  &:last-child
+    margin-bottom 0
+  @media $large
+    width 25%
+    margin 0 vw(25)
+    font-size vw(20)
+    line-height 1.5
+  ._half-light &
+    &:nth-child(-n+2)
+      @media $large
+        color $white
+      .Footer__link
+        +Tap()
+            color $orange
+        @media $large
+          +Tap()
+            color $black
+  
+.Footer__link
+  display inline-block
+  will-change color
+  transition color 160ms ease
+  +Tap()
+    color $orange
+  ._light &
+    +Tap()
+      color $black
+  &_spaced
+    margin-right 10px
+    @media $large
+      margin-right vw(15)

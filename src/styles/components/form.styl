@@ -1,0 +1,31 @@
+.Form
+  position relative
+  &__field
+    font-size 53px
+    line-height 95px
+    border-bottom 2px solid $white
+    font-weight normal
+    margin 0
+    display block
+    width 100%
+    color inherit
+    padding-right 55px
+    box-sizing border-box
+    @media $large
+      padding-right 80px
+      font-size vw(62)
+      line-height vw(95)
+      border-bottom vw(3) solid $white
+    &::placeholder
+      color inherit
+      opacity 0.4
+  &__submit
+    font-size 53px
+    line-height 97px
+    position absolute
+    right 0
+    top 0
+    color inherit
+    @media $large
+      font-size vw(62)
+      line-height vw(98) // base line-height + border

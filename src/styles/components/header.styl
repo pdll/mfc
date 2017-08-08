@@ -1,0 +1,186 @@
+.Header
+  position fixed
+  z-index 98
+  top 0
+  left 0
+  right 0
+  padding 20px 20px 40px
+  @media $medium
+    padding 20px 30px 40px
+  @media $large
+    padding vw(20) vw(40) vw(40)
+      
+.Header__bg
+  position absolute
+  z-index 0
+  top 0
+  bottom 0
+  left 0
+  right 0
+  opacity 0
+  transition opacity 400ms ease
+  .Header_scrolling &
+    opacity 1
+  &::before
+    content ''
+    position absolute
+    right 0
+    top 0
+    bottom 0
+    width 100%
+    background linear-gradient(to bottom, $white 0%, alpha($white, 50%) 65%, alpha($white, 0%) 100%)
+    ._light &
+      width 0
+    ._half-light &
+      width 0
+      @media $large
+        width 51.8301610542%
+  &::after
+    content ''
+    position absolute
+    left 0
+    top 0
+    bottom 0
+    width 0
+    background linear-gradient(to bottom, $orange 0%, alpha($orange, 50%) 65%, alpha($orange, 0%) 100%) 
+    ._light &
+      width 100%
+    ._half-light &
+      width 100%
+      @media $large
+        width 48.1698389458%
+  
+.Header__body
+  display flex
+  justify-content space-between
+  align-items center
+  height 35px
+  position relative
+  z-index 1
+  will-change opacity, transform
+  transition transform 400ms ease, opacity 400ms ease
+  transform-origin center top
+  @media $large
+    height vw(50)
+  .Header_disable &
+    transition transform 400ms 150ms ease, opacity 400ms 150ms ease
+    transform translate3d(0, -150%, 0)
+    opacity 0.4
+
+.Header__menu
+  font-size 0
+  visibility hidden
+  clip rect(1px, 1px, 1px, 1px)
+  @media $large
+    visibility visible
+    clip auto
+  &-link
+    display inline-block
+    vertical-align middle
+    font-size vw(20)
+    line-height 1.5
+    margin-right vw(10)
+    will-change color
+    transition color 160ms ease
+    +Tap()
+      color $orange
+    ._light &
+    ._half-light &
+      color $white
+      +Tap()
+        color $black
+    &:last-child
+      margin-right 0
+  
+.Header__logo
+  position absolute
+  left 50%
+  top 2px
+  margin-left -86.5px
+  @media $large
+    top 0
+    margin-left vw(-107.5)
+  &-img
+    display block
+    font-size 0
+    line-height 0
+    width 173px
+    height 32px
+    color $orange
+    will-change color
+    transition color 300ms ease
+    @media $large
+      width vw(215)
+      height vw(40)
+    ._light &
+      color $white
+    ._half-light &
+      color $white
+      @media $large
+        color $orange
+      .LeftSide
+        @media $large
+          color $white
+      
+  
+.Header__loging-button
+  display none
+  @media $large
+    @extend .Header__menu-link
+    display inline-block
+    margin-right vw(20)
+  +Tap()
+    color $orange
+  ._half-light &
+    color $black
+    +Tap()
+      color $orange
+  ._light &
+    color $white
+  
+.Header__search-button
+  display inline-block
+  vertical-align middle
+  line-height 0
+  font-size 0
+  will-change color
+  transition color 160ms ease 
+  +Tap()
+    color $orange
+  ._half-light &
+    color $white
+    +Tap()
+      color $black
+    @media $large
+      color $black
+      +Tap()
+        color $orange
+  ._light &
+    color $white 
+    +Tap()
+      color $black
+  
+.Header__search-img
+  display block
+  font-size 0
+  line-height 0
+  width 23px 
+  @media $large
+    width vw(24) 
+    
+.Burger
+  @media $large
+    display none
+  &__line
+    cursor pointer
+    display block
+    height 2px
+    width 25px
+    background-color $black
+    ._half-light &,
+    ._light &
+      background-color $white
+    &:first-child 
+      margin-bottom 5px
+    &:last-child 
+      margin-top 5px

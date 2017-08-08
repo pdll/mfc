@@ -1,0 +1,31 @@
+{
+  "name": "meetforcharity",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "decouple": "^1.0.1",
+    "mitt": "^1.1.2",
+    "normalize.css": "^7.0.0",
+    "page": "^1.7.1",
+    "react": "^15.6.1",
+    "react-autosize-textarea": "^0.4.8",
+    "react-dom": "^15.6.1",
+    "react-height": "^3.0.0",
+    "react-id-swiper": "^1.4.0",
+    "react-router-dom": "^4.1.1",
+    "react-stickynode": "^1.3.1",
+    "react-transition-group": "^1.2.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.10"
+  },
+  "scripts": {
+    "build-css": "stylus src/styles/app.styl -o src/app.css --include-css",
+    "watch-css": "stylus src/styles/app.styl -o src/app.css --include-css -w",
+    "start": "yarn watch-css & react-scripts start",
+    "build": "yarn build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

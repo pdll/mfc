@@ -1,0 +1,95 @@
+.News
+  padding-left vw(15)
+  padding-right vw(15)
+  &.HomeNews
+    margin-bottom vw(150) 
+
+.NewsRow
+  display flex
+
+.NewsList
+  flex 0 0 calc(66.6666666667% - 50px)
+  margin 0 vw(25)
+
+.NewsWaffle
+  display flex
+  flex-wrap wrap
+  margin 0 vw(-25) vw(-80)
+
+.NewsItem
+  width calc(50% - 50px)
+  margin 0 vw(25) vw(80)
+  
+.NewsItemTitle
+  SubHead()
+  margin vw(5) 0 0
+  
+.NewsItemDate
+  font-size vw(20)
+  line-height vw(20)
+
+.NewsAd
+  flex 0 0 calc(33.3333333333% - 50px)
+  background-color $orange
+  margin 0 vw(25)
+
+.NewsMore
+  text-align center
+  padding-top vw(60)
+
+.NewsMoreButton
+  Button()
+  line-height vw(55) 
+  display inline-block
+  text-align center
+  color $white
+  background-color $black
+  will-change background-color
+  transition background-color 220ms ease
+  +Hover()
+    background-color $orange
+    
+.News__item
+  display block
+  width vw(1200)
+  padding 0 vw(180)
+  box-sizing border-box
+  &-body
+    display block
+    padding-bottom vw(100)
+    position relative
+  &-bg
+    display block
+    position absolute
+    bottom vw(100)
+    left 0
+    right 0
+    height vw(300)
+    background-color transparent
+    background linear-gradient(to top, $white 0%, alpha($white, 60%) 60%, alpha($white, 0%) 100%)
+  &-img
+    display block
+    width 100%
+  &-caption
+    display block
+    position absolute
+    bottom 0
+    width 100%
+    box-sizing border-box
+    padding 0 vw(40)
+  &-label
+    display block
+    margin-bottom vw(10)
+    
+.swiper-button-next
+  width vw(170)
+  height 100%
+  top 0
+  right 0
+  background-image none
+.swiper-button-prev
+  width vw(170)
+  height 100%
+  top 0
+  left 0
+  background-image none

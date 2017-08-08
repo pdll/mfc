@@ -1,0 +1,69 @@
+.Search
+  position fixed
+  left 0
+  right 0
+  top 0
+  bottom 0
+  padding-top 90px
+  box-sizing border-box
+  background-color $orange
+  z-index 999
+  color $white
+  visibility hidden
+  transform translate3d(0, 100%, 0)
+  will-change transform
+  transition transform 400ms ease, visibility 0ms 400ms
+  @media $large
+    padding-top vw(90)
+  &_active
+    transition-delay 0ms
+    visibility visible
+    transform translate3d(0, 0, 0)
+  &__close-button
+    display block
+    position absolute
+    color $white
+    width 40px
+    top 20px
+    right 10px
+    @media $medium
+      right 15px
+    @media $large
+      width vw(85)
+      top vw(20)
+      right vw(20)
+  &__body
+    margin 0 auto
+    display flex
+    flex-direction column
+    height 100%
+    padding 0 20px
+    @media $medium
+      padding 0 30px
+    @media $large
+      padding 0
+      max-width vw(950)
+  &__result
+    position relative
+    overflow-x hidden
+    overflow-y scroll 
+    will-change opacity
+    opacity 0
+    transform translate3d(0, 20px, 0)
+    transition opacity 400ms ease, transform 400ms ease
+    &_active
+      opacity 1
+      transform translate3d(0, 0, 0)
+  &__result-body
+    position relative
+    padding vw(40) 0
+  &__result-item
+    margin-bottom vw(40) 
+    &:last-child
+      margin-bottom 0
+  &__result-label
+    Text()
+    display block
+  &__result-title
+    MainHead()
+    display block

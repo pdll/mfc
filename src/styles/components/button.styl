@@ -1,0 +1,31 @@
+button
+  padding 0
+  margin 0
+  border none
+  outline none
+  background-color alpha(#fff, 0.0)
+  background-color transparent
+  cursor pointer
+
+.Button
+  display inline-block
+  width 300px
+  font-size 20px
+  line-height 55px
+  text-align center
+  transition background-color 160ms ease, color 160ms ease
+  @media $large
+    width vw(300)
+    font-size vw(20)
+    line-height vw(55)
+  &_white,
+  ._light &
+    background-color $white
+    color $orange
+    +Tap()
+      background-color $black
+  &_black
+    background-color $black
+    color $white
+    +Tap()
+      background-color $orange

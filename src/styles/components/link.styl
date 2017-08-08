@@ -1,0 +1,18 @@
+.Link
+  transition color 160ms ease
+  color inherit
+  +Tap()
+      color $orange
+  .Container_light &,
+  ._light &
+    +Tap()
+      color $black
+  &_single
+    display table
+  &_light
+    +Tap()
+      color $black
+  &_orange
+    color $orange
+    +Tap()
+      color $black

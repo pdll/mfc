@@ -1,0 +1,70 @@
+.Hero
+  padding-bottom 50px
+  padding-left 20px
+  padding-right 20px
+  @media $medium
+    padding-left 30px
+    padding-right 30px
+  @media $large
+    padding-bottom vw(80)
+    padding-left vw(40)
+    padding-right vw(40)
+    
+.Hero__closer
+  display none
+  position fixed
+  top 0
+  left 0
+  pointer-events none
+  width vw(85)
+  color $orange
+  z-index 99
+  will-change transform
+
+.Hero__header
+  color $orange
+
+.Hero__total
+  font-size vw(190)
+  line-height 1
+  display block
+  @media $medium
+    font-size vw(120)
+    line-height 0.83
+  &-caption
+    font-size 32px
+    display block
+    @media $medium
+      font-size vw(62)
+    
+.Hero__caption
+  line-height 1.2
+  font-size 32px
+  @media $medium
+    font-size vw(62)
+    
+.Hero__caption-wrap
+  padding-top vw(60)
+  position relative
+  overflow hidden
+  will-change max-height, padding-top
+  transition max-height 600ms cubic-bezier(.175,.885,.35,1.275), padding-top 400ms ease
+  cursor none
+  &.is-hidden
+    max-height 0 !important
+    padding-top 0
+  &::after
+    content ''
+    position absolute
+    left 0
+    right 0
+    bottom 0
+    height 75%
+    opacity 0
+    background linear-gradient(to top, $white 0%, alpha($white, 50%) 65%, alpha($white, 0%) 100%)
+    will-change opacity
+    transition opacity 600ms ease
+  &:hover::after
+    opacity 1
+  &:hover+.Hero__closer
+    display block

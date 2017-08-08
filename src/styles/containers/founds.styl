@@ -1,0 +1,188 @@
+.Founds
+  padding 0 20px
+  @media $medium
+    padding 0 30px
+  @media $large
+    padding 0
+
+.Founds__item
+  display block
+  font-size 0
+  will-change color
+  transition color 160ms ease 
+  margin-bottom vw(60) 
+  ._light &
+    +Tap()
+      color $black 
+
+.Founds__Link
+  margin-bottom 40px
+  @media $large
+    margin-bottom vw(40)
+
+.Founds__total
+  display inline-block
+  vertical-align top
+  
+.Sidebar
+  color $white
+  position relative
+  background-color $orange
+  padding-top 80px
+  @media $large
+    padding-top 0
+    background-color transparent
+    position fixed
+    height calc(100vh - 7.3206442167vw)
+    top vw(100)
+    box-sizing border-box
+    width calc(48.1698389458% - 2.9282576867vw)
+  &_absolute
+    z-index 0
+    @media $large
+      position absolute
+  &__head
+    position absolute
+    width 100%
+    max-width 710px
+    bottom 20px
+    z-index 1
+    padding 0 20px
+    @media $medium
+      bottom 30px
+      padding 0 30px
+      left 0
+      right 0
+      margin auto
+    @media $large
+      bottom vw(100)
+      left auto
+      padding 0
+  &__bg
+    width 100%
+    @media $large
+      position absolute
+      top 50%
+      transform translate3d(0, -50%, 0)
+      box-sizing border-box
+      padding-right vw(50)
+    &-img
+      display block
+      width 100%
+      max-width 710px
+      margin auto
+    &-overlay
+      position absolute
+      left 0
+      right 0
+      bottom 0
+      height 250px
+      background linear-gradient(to top, $orange 0%, alpha($orange, 60%) 60%, alpha($orange, 0%) 100%)
+      @media $large
+        height vw(250)
+  &__footer
+    position absolute
+    top 100px
+    right 20px
+    width 150px
+    display none
+    @media $medium
+      display block
+      right 30px
+    @media $large
+      display flex
+      justify-content space-between
+      align-items flex-end
+      left 0
+      bottom vw(30)
+      right 3.6603vw
+      width auto
+  &__getlinks
+    margin-bottom 20px
+    @media $large
+      margin-bottom 0
+  &__share
+    width 50%
+    margin-right vw(85)
+    &_absolute
+      position absolute
+      top 100px
+      left 20px
+      margin-right 0
+      @media $medium
+        left 30px
+      @media $large
+        top auto
+        left auto
+  &__logo
+    width 50%
+  &__logo-img
+    margin-bottom vw(10)
+    img
+      display block
+      width 125px
+  
+.Main
+  padding 50px 20px 0
+  max-width 710px
+  margin auto
+  @media $medium
+    padding 50px 30px 0
+  @media $large
+    max-width none
+    padding 0
+    margin 0 0 0 calc(50% + 1.8301610542vw)    
+  &__lots-list
+    @media $medium
+      margin-left -20px
+      max-width 75%
+    @media $large
+      padding-bottom vw(50)
+      margin-left vw(-25)
+    &_no-pading
+      padding-bottom 0
+      margin-bottom vw(-30)
+  &__title
+    margin-bottom 15px
+    @media $large
+      margin-bottom vw(30)
+  &__description
+    padding 30px 0
+    @media $large
+      padding vw(60) 0
+  &__founds-list
+    padding 0 0 25px
+  &__members-list
+    padding vw(30) 0 0
+  &__members-item,
+  &__founds-item
+    margin-bottom 15px
+    display flex
+    @media $large
+      margin-bottom vw(15)
+    &:last-child
+      margin-bottom 0
+  &__members-price,
+  &__founds-price
+    flex 0 0 125px
+    display block
+    text-align right
+    margin-right 15px
+    @media $large
+      margin-right vw(20)
+      flex 0 0 vw(150)
+  &__founds-name
+    display block
+  &__members-button
+    margin-top vw(15)
+  &__founds-control
+    display flex
+  &__control
+    display inline-block
+    vertical-align middle
+    margin-right 15px
+    @media $large
+      margin-right vw(20)
+  &__control-label
+    display inline-block
+    vertical-align middle

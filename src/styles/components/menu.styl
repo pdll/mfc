@@ -1,0 +1,36 @@
+.Menu
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  background-color $white
+  z-index 999
+  transform translate3d(-100%, 0, 0)
+  visibility hidden
+  transition transform 400ms ease, visibility 0ms 400ms
+  &_show
+    transform translate3d(0, 0, 0)
+    visibility visible
+    transition-delay 0ms
+  &__body
+    padding 20px
+    @media $medium
+      padding 30px
+  &__close
+    width 40px
+    position absolute
+    top 20px
+    right 10px
+    color $orange
+    will-change color
+    transition color 200ms ease
+    @media $medium
+      right 15px
+    +Tap()
+      color $black
+  &__enter
+    position absolute
+    bottom 20px
+    @media $medium
+      bottom 30px

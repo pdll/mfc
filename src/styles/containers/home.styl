@@ -1,0 +1,82 @@
+.Home__section
+  margin-bottom 60px
+  @media $medium
+    margin-bottom vw(100)
+  &:last-of-type
+    margin-bottom 0
+
+.Home__persons
+  font-size 0
+
+.Home__persons-list
+  padding 0 20px
+  margin-bottom -30px
+  @media $medium
+    padding 0 10px
+    margin-bottom 0
+  @media $large
+    padding 0 vw(15)
+    margin-bottom 0
+  &_special
+    background-color $orange
+    padding-left 20px
+    padding-right 20px
+    @media $medium
+      padding 0 10px
+    @media $large
+      padding-left vw(15)
+      padding-right vw(15)
+  
+.Home__more
+  padding-top 30px
+  text-align center
+  @media $medium
+    padding-top vw(60)
+
+.Home__news-link
+  display block
+
+.Home__founds
+  padding 0 20px
+  @media $medium
+    padding 0 30px
+  @media $large
+    padding 0
+  &-caption
+    margin-bottom 30px
+    font-size 32px
+    line-height 1.2
+    @media $medium
+      margin-bottom vw(60)
+      font-size vw(62)
+
+  
+.Home__news
+  &-grid
+    padding 0 20px
+    @media $medium
+      margin 0 -20px
+      padding 0 30px
+      display flex
+      flex-wrap wrap
+    @media $large
+      margin 0 vw(-25)
+      padding 0
+  &-item
+    box-sizing border-box
+    margin-bottom 40px
+    @media $medium
+      padding 0 20px
+      width 50%
+      display flex
+    @media $large
+      margin-bottom vw(80)
+      padding 0 vw(25)
+    &:last-child
+      margin-bottom 0
+    &:nth-child(n + 3)
+      @media $medium
+        margin-bottom 0
+  &-date
+    display block
+    margin-bottom vw(5)

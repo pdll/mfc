@@ -1,0 +1,32 @@
+@font-face 
+  font-family 'SFUIDisplay-Medium'
+  src url('/fonts/subset-SFUIDisplay-Medium.woff2') format('woff2'),
+    url('/fonts/subset-SFUIDisplay-Medium.woff') format('woff')
+  font-weight normal
+  font-style normal
+
+Medium()
+  font-family 'SFUIDisplay-Medium'
+
+.Head
+  font-size 53px
+  line-height 1.2
+  font-weight normal
+  margin 0
+  @media $large
+    font-size vw(62)
+
+.SubHead
+  font-size 38px
+  line-height 1
+  font-weight normal
+  margin 0
+  @media $large
+    font-size vw(50)
+  
+.Text
+  font-size 20px
+  line-height 1.25 
+  margin 0
+  @media $large
+    font-size vw(20) 
