@@ -6,24 +6,29 @@
     margin-top vw(-50)
     padding 0
   &__title
-    margin-bottom vw(15)
+    margin-bottom 15px
+    @media $large
+      margin-bottom vw(15)
   &__caption
     @media $medium
       width vw(600)
   &__list
-    padding-top vw(100)
+    padding-top 35px
     margin 0 vw(-25)
     font-size 0
     line-height 0
+    @media $large
+      padding-top vw(75)
   &__img
     display inline-block
     vertical-align middle
     box-sizing border-box
-    padding vw(25) vw(25)
+    padding 15px vw(25)
     width 100%
     @media $medium
       width 50%
     @media $large
+      padding vw(25)
       width 33.3333333%
     &>*
       background-color alpha($black, 10%)

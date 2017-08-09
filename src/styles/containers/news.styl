@@ -1,6 +1,4 @@
 .News
-  padding-left vw(15)
-  padding-right vw(15)
   &.HomeNews
     margin-bottom vw(150) 
 
@@ -51,32 +49,44 @@
     
 .News__item
   display block
-  width vw(1200)
-  padding 0 vw(180)
+  padding 0 20px
   box-sizing border-box
+  @media $medium
+    padding 0 60px
+  @media $large
+    padding 0 vw(180)
+    width vw(1200)    
   &-body
     display block
-    padding-bottom vw(100)
     position relative
-  &-bg
-    display block
-    position absolute
-    bottom vw(100)
-    left 0
-    right 0
-    height vw(300)
-    background-color transparent
-    background linear-gradient(to top, $white 0%, alpha($white, 60%) 60%, alpha($white, 0%) 100%)
+    padding-bottom vw(100)
   &-img
     display block
     width 100%
+  &-img-overlay
+    display block
+    position relative
+    width 100%
+    &::after
+      content ''
+      display block
+      position absolute
+      bottom 0
+      left 0
+      right 0
+      background-color transparent
+      height 100px
+      background linear-gradient(to top, $white 0%, alpha($white, 60%) 60%, alpha($white, 0%) 100%)
+      @media $large
+        height vw(300)
   &-caption
     display block
-    position absolute
-    bottom 0
     width 100%
     box-sizing border-box
-    padding 0 vw(40)
+    @media $large
+      bottom 0
+      position absolute
+      padding 0 vw(40)
   &-label
     display block
     margin-bottom vw(10)
