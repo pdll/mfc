@@ -169,17 +169,23 @@
     width vw(24) 
     
 .Burger
+  color $black
+  transition color 160ms ease
   @media $large
     display none
+  +Tap()
+    color $orange
+  ._half-light &,
+  ._light &
+    color $white
+    +Tap()
+      color $black
   &__line
     cursor pointer
     display block
     height 2px
     width 25px
-    background-color $black
-    ._half-light &,
-    ._light &
-      background-color $white
+    background-color currentColor
     &:first-child 
       margin-bottom 5px
     &:last-child 

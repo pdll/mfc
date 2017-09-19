@@ -73,12 +73,18 @@ export default class extends Component {
             <img className="Sidebar__bg-img" src="/assets/img/persons/01.png" alt=""/>
             <div className="Sidebar__bg-overlay"></div>
           </div>
-          <div className="Sidebar__share Sidebar__share_absolute Text">
-            Поделиться:
-            <a href="" className="Link Link_light Link_single">Фейсбук</a>
-            <a href="" className="Link Link_light Link_single">Вконтакте</a> 
-            <a href="" className="Link Link_light Link_single">Твиттер</a>
-          </div>
+          {!isMobile ? 
+            <div className="Sidebar__share Sidebar__share_absolute Text">
+              Поделиться:
+              <a href="" className="Link Link_light Link_single">Фейсбук</a>
+              <a href="" className="Link Link_light Link_single">Вконтакте</a> 
+              <a href="" className="Link Link_light Link_single">Твиттер</a>
+            </div>
+          :
+          <button type="button" className="Sidebar__share Sidebar__share_button Sidebar__share_absolute Text">
+            Поделиться
+          </button>
+          }
           <h1 className="Head Sidebar__head">Юлия<br/>Шахновская</h1>
           <div className="Sidebar__footer Text">
             <div className="Sidebar__getlinks">

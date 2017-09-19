@@ -25,10 +25,10 @@ export default ({ activeOverlay, onCloseSigin }) => {
         <Form placeholder="Телефон или почта"/>
         <div className="Signin__social Text">
           <span className="Text Signin__social__label">Или с помощью соцсетей:</span>
-          <button className="Signin__social__button"><Facebook /></button>
-          <button className="Signin__social__button"><Vkontakte /></button>
-          <button className="Signin__social__button"><Twitter /></button>
-          <button className="Signin__social__button"><Odnoklassniki /></button>
+          <button type="button" className="Signin__social__button"><Facebook /></button>
+          <button type="button" className="Signin__social__button"><Vkontakte /></button>
+          <button type="button" className="Signin__social__button"><Twitter /></button>
+          <button type="button" className="Signin__social__button"><Odnoklassniki /></button>
         </div>
       </div>
     </div>

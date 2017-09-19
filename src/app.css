@@ -923,21 +923,35 @@ button {
     width: 1.757vw;
   }
 }
+.Burger {
+  color: #000;
+  transition: color 160ms ease;
+}
 @media screen and (min-width: 1025px) {
   .Burger {
     display: none;
   }
+}
+.Mouse .Burger:hover,
+.Burger:active {
+  color: #ff5027;
+}
+._half-light .Burger,
+._light .Burger {
+  color: #fff;
+}
+.Mouse ._half-light .Burger:hover,
+.Mouse ._light .Burger:hover,
+._half-light .Burger:active,
+._light .Burger:active {
+  color: #000;
 }
 .Burger__line {
   cursor: pointer;
   display: block;
   height: 2px;
   width: 25px;
-  background-color: #000;
-}
-._half-light .Burger__line,
-._light .Burger__line {
-  background-color: #fff;
+  background-color: currentColor;
 }
 .Burger__line:first-child {
   margin-bottom: 5px;
@@ -1345,7 +1359,7 @@ button {
   margin-bottom: 1em;
 }
 .Contacts__text {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 @media screen and (min-width: 1025px) {
   .Contacts__text {
@@ -1521,6 +1535,15 @@ button {
     top: auto;
     left: auto;
   }
+}
+.Sidebar__share_button {
+  text-align: left;
+  color: #fff;
+  transition: color 160ms ease;
+}
+.Mouse .Sidebar__share_button:hover,
+.Sidebar__share_button:active {
+  color: #000;
 }
 .Sidebar__logo {
   width: 50%;
@@ -2120,6 +2143,7 @@ button {
 }
 .Persons__list {
   padding: 0 20px;
+  font-size: 0;
 }
 @media screen and (min-width: 667px) {
   .Persons__list {
@@ -2138,6 +2162,7 @@ button {
 .Persons__more {
   padding-top: 0;
   text-align: center;
+  padding-top: 30px;
 }
 @media screen and (min-width: 667px) {
   .Persons__more {
@@ -2184,8 +2209,14 @@ button {
   color: #000;
 }
 .Members__more {
-  padding-top: 4.3924vw;
+  padding-top: 0;
   text-align: center;
+  padding-top: 30px;
+}
+@media screen and (min-width: 667px) {
+  .Members__more {
+    padding-top: 4.3924vw;
+  }
 }
 .Search {
   position: fixed;
@@ -2563,7 +2594,7 @@ input {
   background-color: #ff5027;
   width: 100%;
   opacity: 0;
-  transition: opacity 300ms;
+  transition: opacity 300ms ease-out;
 }
 @media screen and (min-width: 1025px) {
   .Background {
