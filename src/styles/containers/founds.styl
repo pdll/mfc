@@ -101,6 +101,10 @@
     margin-bottom 20px
     @media $large
       margin-bottom 0
+      max-width 30%
+  &__profile
+    @media $large
+      max-width 40%
   &__share
     width 50%
     margin-right vw(85)
@@ -156,39 +160,47 @@
     padding 30px 0
     @media $large
       padding vw(60) 0
+    a
+      color $orange
+      will-change color
+      transition color 160ms ease
+      .Mouse &:hover,
+      &:active
+        color $black
   &__founds-list
     padding 0 0 25px
   &__members-list
     padding vw(30) 0 0
   &__members-item,
   &__founds-item
-    margin-bottom 15px
     display flex
     @media $large
-      margin-bottom vw(15)
-    &:last-child
-      margin-bottom 0
+      margin-bottom vw(5)
+    &.Orange
+      color $orange
   &__members-price,
   &__founds-price
     flex 0 0 125px
     display block
-    text-align right
     margin-right 15px
     @media $large
       margin-right vw(20)
       flex 0 0 vw(150)
+  &__founds-button
+    margin-top 30px
+    @media $large
+      margin-top vw(30)
   &__founds-name
     display block
   &__members-button
     margin-top vw(15)
   &__founds-control
     display flex
+    align-items center
+    margin-bottom 50px
+    @media $large
+      margin-bottom vw(50)
   &__control
-    display inline-block
-    vertical-align middle
     margin-right 15px
     @media $large
       margin-right vw(20)
-  &__control-label
-    display inline-block
-    vertical-align middle

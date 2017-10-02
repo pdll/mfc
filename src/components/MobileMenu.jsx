@@ -7,7 +7,7 @@ export default ({isOpen, handleMenuClose, onOpenSigin}) => (
     <div className="Menu__body">
       <CloseButton className="Menu__close"
         onClick={handleMenuClose} />
-      <a href="/persons" onClick={handleMenuClose} className="Menu__link Link Head Link_single Link_orange">Лоты</a>
+      <a href="/persons" onClick={handleMenuClose} className="Menu__link Link Head Link_single Link_orange">Аукционы</a>
       <a href="/founds" onClick={handleMenuClose} className="Menu__link Link Head Link_single Link_orange">Фонды</a>
       <a href="/members"  onClick={handleMenuClose}className="Menu__link Link Head Link_single Link_orange">Участники</a>
       <a href="/news" onClick={handleMenuClose} className="Menu__link Link Head Link_single Link_orange">Новости</a>

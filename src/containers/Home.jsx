@@ -27,7 +27,7 @@ export default class Home extends Component {
             name = {item.name}
             timer = {item.timer}
             price = {item.price}
-            url = {item.url} />
+            url = {`/persons/${item.url}`} />
         )
       }
 
@@ -41,7 +41,7 @@ export default class Home extends Component {
         name = {item.name}
         timer = {item.timer}
         price = {item.price}
-        url = {item.url} />
+        url = {`/persons/${item.url}`} />
     )
 
     return (
@@ -52,7 +52,7 @@ export default class Home extends Component {
           <div className="Home__persons-list Home__persons-list_special">{ LotsSpecial }</div>
           <div className="Home__persons-list">{ Lots }</div>
           <div className="Home__more">
-            <Link to="/persons" className="Button Button_black">Посмотреть всё лоты</Link>
+            <Link to="/persons" className="Button Button_black">Посмотреть всё аукционы</Link>
           </div>
         </div>
 
@@ -78,6 +78,19 @@ export default class Home extends Component {
           <div className="Container">
             <p className="SubHead Home__founds-caption">Мы сотрудничаем с 30 фондами, среди них: <a href="" className="Link">Handmade Charity</a>, <a href="" className="Link">ОРБИ</a>, <a href="" className="Link">Хама</a>, <a href="" className="Link">Вера и Надежда</a>, <a href="" className="Link">Центр «Антон тут рядом»</a>, <a href="" className="Link">Благотворительный фонд Константина Хабенского</a></p>
             <Link to="/founds" className="Button Button_black">Посмотреть всё фонды</Link>
+          </div>
+        </div>
+
+        <div className="Home__section Home__partners">
+          <div className="Home__partners-scroll">
+            <div className="Home__partners-list">
+              <img className="Home__partners-item" src="/assets/img/partners_rb.png" />
+              <img className="Home__partners-item" src="/assets/img/partners_gg.png" />
+              <img className="Home__partners-item" src="/assets/img/partners_mail.png" />
+              <img className="Home__partners-item" src="/assets/img/partners_meduza.png" />
+              <img className="Home__partners-item" src="/assets/img/partners_ng.png" />
+              <img className="Home__partners-item" src="/assets/img/partners_ya.png" />
+            </div>
           </div>
         </div>
       </div>

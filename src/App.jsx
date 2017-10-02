@@ -20,6 +20,7 @@ import Signin from './containers/Signin'
 import Search from './containers/Search'
 import Persons from './containers/Persons'
 import Members from './containers/Members'
+import Member from './containers/Member'
 import Person from './containers/Person'
 import Founds from './containers/Founds'
 import Found from './containers/Found'
@@ -153,6 +154,7 @@ export default class extends Component {
         }, 400)
       }
     })
+
     page('/', (ctx) => {
       self.setState({
         container: <Home />,
@@ -161,6 +163,7 @@ export default class extends Component {
         isHalfLight: false
       })
     })
+
     page('/contacts', (ctx) => {
       self.setState({
         container: <Contacts />,
@@ -169,6 +172,7 @@ export default class extends Component {
         isHalfLight: false
       })
     })
+
     page('/persons', (ctx) => {
       self.setState({
         container: <Persons />,
@@ -177,6 +181,7 @@ export default class extends Component {
         isHalfLight: false
       })
     })
+
     page('/persons/:id', (ctx) => {
       self.setState({
         container: <Person id={ ctx.params.id } />,
@@ -185,6 +190,7 @@ export default class extends Component {
         isHalfLight: true
       })
     })
+
     page('/founds', (ctx) => {
       self.setState({
         container: <Founds />,
@@ -193,6 +199,7 @@ export default class extends Component {
         isHalfLight: false
       })
     })
+
     page('/founds/:id', (ctx) => {
       self.setState({
         container: <Found id={ ctx.params.id } />,
@@ -201,6 +208,7 @@ export default class extends Component {
         isHalfLight: true
       })
     })
+
     page('/members', (ctx) => {
       self.setState({
         container: <Members />,
@@ -209,6 +217,16 @@ export default class extends Component {
         isHalfLight: false
       })
     })
+
+    page('/members/:id', (ctx) => {
+      self.setState({
+        container: <Member id={ ctx.params.id } />,
+        isIndex: false,
+        isLight: false,
+        isHalfLight: true
+      })
+    })
+
     page('/partners', (ctx) => {
       self.setState({
         container: <Partners />,
@@ -217,6 +235,7 @@ export default class extends Component {
         isHalfLight: false
       })
     })
+
     page('/news', (ctx) => {
       self.setState({
         container: <News />,
@@ -225,6 +244,7 @@ export default class extends Component {
         isHalfLight: false
       })
     })
+
     page('/news/:id', (ctx) => {
       self.setState({
         container: <Article />,
@@ -233,6 +253,7 @@ export default class extends Component {
         isHalfLight: false
       })
     })
+
     page()
     // ------------------------------------------------------------------------
     // End Routing
@@ -245,23 +266,6 @@ export default class extends Component {
   }
 
   render() {
-    const wrapClasess = classNames({
-      'Wrap': true,
-      '_light': this.state.isLight,
-      '_half-light': this.state.isHalfLight
-    })
-
-    const backgroundClasses = classNames({
-      'Background': true,
-      'Background_full': this.state.isLight,
-      'Background_half': this.state.isHalfLight
-    })
-
-    const contentClasess = classNames({
-      'Content': true,
-      'Content_disable': this.state.isSignin || this.state.isSearch || this.state.isMenuOpen
-    })
-
     const contentStyles = {
       'WebkitTransformOrigin': `center ${this.state.verticalScroll}px`,
       'msTransformOrigin': `center ${this.state.verticalScroll}px`,
@@ -272,8 +276,10 @@ export default class extends Component {
     }
 
     return (
-      <div className={ wrapClasess }>
-          
+      <div className={classNames("Wrap", {
+        "_light": this.state.isLight,
+        "_half-light": this.state.isHalfLight
+      })}>  
         <Menu isOpen={this.state.isMenuOpen}
           handleMenuClose={this.handleMenuClose}
           onOpenSigin={ this.handleOpenSigin } />
@@ -286,9 +292,15 @@ export default class extends Component {
           onOpenSearch={ this.handleOpenSearch }
           onOpenSigin={ this.handleOpenSigin } />
 
-        <div className={ backgroundClasses }></div>
+        <div className={classNames(
+          "Background", {
+          "Background_full": this.state.isLight,
+          "Background_half": this.state.isHalfLight
+        })} />
 
-        <div className={ contentClasess } style={contentStyles }>
+        <div className={classNames("Content", {
+          "Content_disable": this.state.isSignin || this.state.isSearch || this.state.isMenuOpen
+        })} style={contentStyles}>
           { this.state.container }
           <Footer />
         </div>

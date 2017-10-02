@@ -19,7 +19,7 @@ export default class extends Component {
         name = {item.name}
         timer = {item.timer}
         price = {item.price}
-        url = {item.url} />
+        url = {`/members/${item.url}`} />
     )
 
     return (

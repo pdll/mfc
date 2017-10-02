@@ -53,7 +53,7 @@ export default class extends Component {
       <div className="Hero">
         <div className="Hero__header">
           <span className="Hero__total">12 000 000 ₽</span>
-          <span className="SubHead Hero__total-caption">собрано на благо&shy;тво&shy;рительность</span>
+          <span className="SubHead Hero__total-caption">на благо&shy;тво&shy;рительность</span>
         </div>
         <div className="Hero__caption-wrap" onMouseMove={ this.handleMouseMove } onClick={ this.handleClick }>
           <p className="SubHead Hero__caption">Благотворительный аукцион встреч, 

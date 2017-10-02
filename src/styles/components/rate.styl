@@ -1,0 +1,36 @@
+.Rate
+  position fixed
+  left 0
+  right 0
+  top 0
+  bottom 0
+  padding-top 90px
+  box-sizing border-box
+  background-color $orange
+  z-index 999
+  color $white
+  visibility hidden
+  transform translate3d(0, 100%, 0)
+  will-change transform
+  transition transform 400ms ease, visibility 0ms 400ms
+  @media $large
+    padding-top vw(90)
+  &_active
+    transition-delay 0ms
+    visibility visible
+    transform translate3d(0, 0, 0)
+  &__form
+    margin-bottom 50px
+    @media $large
+      margin-bottom vw(50)
+      width 75%
+  &__control-body
+    display flex
+    align-items center
+    margin-bottom 25px
+    @media $large
+      margin-bottom vw(25)
+  &__control
+    margin-right 20px
+    @media $large
+      margin-right vw(20)

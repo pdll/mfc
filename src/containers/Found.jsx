@@ -89,7 +89,7 @@ export default class extends Component {
           <button className="Button Button_black">Поддержать фонд</button>
           <p className="Main__description Text">Благотворительный фонд реализует программы духовно-нравственного воспитания и социальной адаптации детей, родителей из кризисных семей и людей с ограниченным возможностями</p>
           <section className="Main__lots">
-            <h1 className="SubHead">Активные лоты</h1>
+            <h1 className="SubHead">Активные аукционы</h1>
             <div className="Main__lots-list">
               {this.state.persons.map((item, i) =>
                 <Person

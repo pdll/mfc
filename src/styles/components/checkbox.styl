@@ -28,15 +28,25 @@
     top 2px
     left 2px
     z-index 1
-    will-change transform 
-    transition transform 200ms ease
+    will-change transform, background-color
+    transition transform 200ms ease, background-color 200ms ease
     @media $large
       top vw(2)
       left vw(2)
       width vw(28)
       height vw(28)
 
-.Checkbox__field:checked+.Checkbox__control
+.Checkbox_checked .Checkbox__control
   transform translate3d(30px, 0, 0)
   @media $large
     transform translate3d(2.0497803807vw, 0, 0)
+    
+.Checkbox_light
+  .Checkbox__label
+    border 1px solid #fff
+    background-color $orange
+    transition background-color 200ms ease
+  &.Checkbox_checked .Checkbox__label
+    background-color $white
+  &.Checkbox_checked .Checkbox__control
+    background-color $orange

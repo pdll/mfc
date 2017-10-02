@@ -22,7 +22,7 @@ export default ({ isDisable, verticalScroll, onOpenSigin, onOpenSearch, isIndex,
           <span className="Burger__line"></span>
         </button>
         <div className="Header__menu">
-          <Link to="/persons" className="Header__menu-link">Лоты</Link>
+          <Link to="/persons" className="Header__menu-link">Аукционы</Link>
           <Link to="/founds" className="Header__menu-link">Фонды</Link>
           <Link to="/members" className="Header__menu-link">Участники</Link>
           <Link to="/news" className="Header__menu-link">Новости</Link>

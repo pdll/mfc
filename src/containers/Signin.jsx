@@ -10,13 +10,8 @@ import Odnoklassniki from './../components/Icons/Odnoklassniki'
 import CloseButton from './../components/CloseButton'
 
 export default ({ activeOverlay, onCloseSigin }) => {
-  const classes = classNames({
-    'Signin': true,
-    'Signin_active': activeOverlay
-  })
-
   return (
-    <div className={ classes }>
+    <div className={classNames('Signin', {'Signin_active': activeOverlay})}>
       <CloseButton
         className="Signin__close-button"
         onClick={ onCloseSigin } />

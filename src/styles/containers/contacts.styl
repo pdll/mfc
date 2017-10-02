@@ -36,3 +36,79 @@
   @media $large
     width vw(410)
     margin-bottom vw(20)
+    
+.Contacts-form
+  position fixed
+  left 0
+  right 0
+  top 0
+  bottom 0
+  background-color $orange
+  z-index 999
+  color $white
+  padding-top 90px
+  visibility hidden
+  transform translate3d(0, 100%, 0)
+  will-change transform
+  transition transform 400ms ease, visibility 0ms 400ms
+  @media $large 
+    padding-top vw(90)
+  &_active
+    transition-delay 0ms
+    visibility visible
+    transform translate3d(0, 0, 0)
+  &__close-button
+    display block
+    position absolute
+    color $white
+    width 40px
+    top 20px
+    right 10px
+    @media $medium
+      right 15px
+    @media $large
+      width vw(85)
+      top vw(20)
+      right vw(20)
+  &__body
+    margin 0 auto
+    padding 0 20px
+    @media $medium
+      padding 0 30px
+    @media $large
+      padding 0
+      max-width vw(950)
+  &__title
+    margin 0 0 60px
+    @media $large
+      margin 0 0 vw(90)
+  &__underhead
+    position relative
+    display block
+    top -60px
+    margin-bottom -1.25em
+    @media $large
+      top vw(-90)
+  &__social
+    padding-top 30px
+    @media $large
+      padding-top vw(30) 
+  &__social__label
+    line-height 40px
+    display block
+    vertical-align top
+    @media $medium
+      display inline-block
+    @media $large
+      line-height vw(50)
+  &__social__button
+    display inline-block
+    vertical-align top
+    width 40px
+    color $white
+    margin-right 15px
+    @media $large
+      margin-right vw(15) 
+      width vw(50)
+    &:last-child
+      margin-right 0
