@@ -1098,8 +1098,8 @@ button {
     padding: 2.1962vw 1.8302vw;
   }
 }
-.Mouse .Lot:hover,
-.Lot:active {
+.Mouse .Lot:not(.Lot_complete):hover,
+.Lot:not(.Lot_complete):active {
   color: #ff5027;
 }
 .Mouse ._light .Lot:hover,
@@ -1117,6 +1117,23 @@ button {
   display: block;
   width: 100%;
 }
+.Lot_complete {
+  padding-top: 0;
+}
+@media screen and (min-width: 1025px) {
+  .Lot_complete {
+    margin-top: -1.4641vw;
+  }
+}
+.Lot__button {
+  text-align: left;
+  will-change: color;
+  transition: color 160ms ease;
+}
+.Mouse .Lot__button:hover,
+.Lot__button:active {
+  color: #ff5027;
+}
 .Lot__inner {
   padding-bottom: 100%;
   position: relative;
@@ -1127,11 +1144,16 @@ button {
   position: absolute;
   bottom: 0;
 }
-.Lot__time {
+.Lot__time,
+.Lot__meta {
   position: absolute;
   left: 0;
   top: 1.8302vw;
   z-index: 2;
+}
+.Lot__meta {
+  color: #ff5027;
+  max-width: 150px;
 }
 .Lot__name {
   position: absolute;
@@ -1697,6 +1719,20 @@ button {
     padding: 0;
   }
 }
+.Sidebar__head_top {
+  position: static;
+  padding-bottom: 50px;
+}
+@media screen and (min-width: 1025px) {
+  .Sidebar__head_top {
+    position: absolute;
+    bottom: auto;
+    top: -0.7321vw;
+    padding-bottom: 0;
+    padding-right: 3.6603vw;
+    box-sizing: border-box;
+  }
+}
 .Sidebar__bg {
   width: 100%;
 }
@@ -1750,6 +1786,28 @@ button {
     bottom: 2.1962vw;
     right: 3.6603vw;
     width: auto;
+  }
+}
+.Sidebar__footer_profile {
+  position: static;
+  display: block;
+  padding: 0 20px 50px;
+  width: 100%;
+  max-width: 710px;
+  margin: auto;
+}
+@media screen and (min-width: 667px) {
+  .Sidebar__footer_profile {
+    padding: 0 30px 50px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .Sidebar__footer_profile {
+    padding: 0;
+    position: absolute;
+    display: flex;
+    padding-right: 3.6603vw;
+    box-sizing: border-box;
   }
 }
 .Sidebar__getlinks {
@@ -1823,6 +1881,33 @@ button {
     margin: 0 0 0 calc(50% + 1.8301610542vw);
   }
 }
+.Main__top {
+  margin-bottom: 50px;
+}
+@media screen and (min-width: 667px) {
+  .Main__top {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .Main__top {
+    margin-bottom: 6.5886vw;
+    padding-top: 1.4641vw;
+  }
+}
+.Main__auction {
+  margin-bottom: 50px;
+}
+@media screen and (min-width: 667px) {
+  .Main__auction {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .Main__auction {
+    margin-bottom: 0;
+  }
+}
 @media screen and (min-width: 667px) {
   .Main__lots-list {
     margin-left: -20px;
@@ -1838,6 +1923,12 @@ button {
 .Main__lots-list_no-pading {
   padding-bottom: 0;
   margin-bottom: -2.1962vw;
+}
+@media screen and (min-width: 1025px) {
+  .Main__lots-list_complete {
+    padding-bottom: 0;
+    margin-bottom: -1.4641vw;
+  }
 }
 .Main__title {
   margin-bottom: 15px;
@@ -1866,6 +1957,9 @@ button {
 }
 .Main__founds-list {
   padding: 0 0 25px;
+}
+.Main__founds-list_top-gap {
+  padding-top: 25px;
 }
 .Main__members-list {
   padding: 2.1962vw 0 0;

@@ -35,7 +35,8 @@ export default ({ isDisable, verticalScroll, onOpenSigin, onOpenSearch, isIndex,
           }
         </div>
         <div className="Header__rightside">
-          <button className="Header__loging-button" onClick={ onOpenSigin }>Войти</button>
+          <a href="/profile" className="Header__loging-button">Павел Фролов</a>
+          {/*<button className="Header__loging-button" onClick={ onOpenSigin }>Войти</button>*/}
           <button className="Header__search-button" onClick={ onOpenSearch }>
             <span className="Header__search-img"><Search /></span>
           </button>

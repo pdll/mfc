@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 
-import Person from './../components/Person'
 import Checkbox from './../components/Checkbox'
 import isMobile from './../helpers/isMobile'
 import db from './../db'

@@ -10,8 +10,9 @@
     padding 30px 20px
   @media $large
     padding vw(30) vw(25)
-  +Tap()
-    color $orange
+  &:not(.Lot_complete)
+    +Tap()
+      color $orange
   ._light &
     +Tap()
       color $black
@@ -22,6 +23,16 @@
   &_single
     display block
     width 100%
+  &_complete
+    padding-top 0
+    @media $large
+      margin-top vw(-20)
+  &__button
+    text-align left
+    will-change color
+    transition color 160ms ease
+    +Tap()
+      color $orange
   &__inner
     padding-bottom 100%
     position relative
@@ -31,10 +42,14 @@
     position absolute
     bottom 0
   &__time
+  &__meta
     position absolute
     left 0
     top vw(25)
     z-index 2
+  &__meta
+    color $orange
+    max-width 150px
   &__name
     position absolute
     bottom 35px

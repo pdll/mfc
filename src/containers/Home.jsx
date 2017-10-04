@@ -84,12 +84,12 @@ export default class Home extends Component {
         <div className="Home__section Home__partners">
           <div className="Home__partners-scroll">
             <div className="Home__partners-list">
-              <img className="Home__partners-item" src="/assets/img/partners_rb.png" />
-              <img className="Home__partners-item" src="/assets/img/partners_gg.png" />
-              <img className="Home__partners-item" src="/assets/img/partners_mail.png" />
-              <img className="Home__partners-item" src="/assets/img/partners_meduza.png" />
-              <img className="Home__partners-item" src="/assets/img/partners_ng.png" />
-              <img className="Home__partners-item" src="/assets/img/partners_ya.png" />
+              <img className="Home__partners-item" alt="" src="/assets/img/partners_rb.png" />
+              <img className="Home__partners-item" alt="" src="/assets/img/partners_gg.png" />
+              <img className="Home__partners-item" alt="" src="/assets/img/partners_mail.png" />
+              <img className="Home__partners-item" alt="" src="/assets/img/partners_meduza.png" />
+              <img className="Home__partners-item" alt="" src="/assets/img/partners_ng.png" />
+              <img className="Home__partners-item" alt="" src="/assets/img/partners_ya.png" />
             </div>
           </div>
         </div>

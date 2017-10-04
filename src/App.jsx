@@ -27,6 +27,7 @@ import Found from './containers/Found'
 import Partners from './containers/Partners'
 import News from './containers/News'
 import Article from './containers/Article'
+import Profile from './containers/Profile'
 
 export default class extends Component {
   constructor(props) {
@@ -251,6 +252,15 @@ export default class extends Component {
         isIndex: false,
         isLight: false,
         isHalfLight: false
+      })
+    })
+
+    page('/profile', (ctx) => {
+      self.setState({
+        container: <Profile />,
+        isIndex: false,
+        isLight: false,
+        isHalfLight: true
       })
     })
 

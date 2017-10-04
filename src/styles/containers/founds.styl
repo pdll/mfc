@@ -58,6 +58,16 @@
       bottom vw(100)
       left auto
       padding 0
+    &_top
+      position static
+      padding-bottom 50px
+      @media $large
+        position absolute
+        bottom auto
+        top vw(-10)
+        padding-bottom 0
+        padding-right vw(50)
+        box-sizing border-box
   &__bg
     width 100%
     @media $large
@@ -97,6 +107,21 @@
       bottom vw(30)
       right 3.6603vw
       width auto
+    &_profile
+      position static
+      display block
+      padding 0 20px 50px
+      width 100%
+      max-width 710px
+      margin auto
+      @media $medium
+        padding 0 30px 50px
+      @media $large
+        padding 0
+        position absolute
+        display flex
+        padding-right vw(50)
+        box-sizing border-box
   &__getlinks
     margin-bottom 20px
     @media $large
@@ -142,6 +167,19 @@
     max-width none
     padding 0
     margin 0 0 0 calc(50% + 1.8301610542vw)    
+  &__top
+    margin-bottom 50px
+    @media $medium
+      margin-bottom 100px
+    @media $large
+      margin-bottom vw(90)
+      padding-top vw(20)
+  &__auction 
+    margin-bottom 50px
+    @media $medium
+      margin-bottom 100px
+    @media $large
+      margin-bottom 0
   &__lots-list
     @media $medium
       margin-left -20px
@@ -152,6 +190,10 @@
     &_no-pading
       padding-bottom 0
       margin-bottom vw(-30)
+    &_complete
+      @media $large
+        padding-bottom 0
+        margin-bottom vw(-20)
   &__title
     margin-bottom 15px
     @media $large
@@ -169,6 +211,8 @@
         color $black
   &__founds-list
     padding 0 0 25px
+    &_top-gap
+      padding-top 25px
   &__members-list
     padding vw(30) 0 0
   &__members-item,
