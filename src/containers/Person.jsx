@@ -30,14 +30,14 @@ export default class extends Component {
   }
 
   componentDidMount () {
-    window.addEventListener('load', this.calcPoint)
-    window.addEventListener('scroll', this.handleScroll)
-    window.addEventListener('resize', this.calcPoint)
+    global.addEventListener('load', this.calcPoint)
+    global.addEventListener('scroll', this.handleScroll)
+    global.addEventListener('resize', this.calcPoint)
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('resize', this.calcPoint)
+    global.removeEventListener('scroll', this.handleScroll)
+    global.removeEventListener('resize', this.calcPoint)
   }
 
   handleToggleRateWindow () {
@@ -53,26 +53,22 @@ export default class extends Component {
   }
 
   calcPoint () {
-    this.setState({ point: this.container.offsetTop + this.container.offsetHeight - window.innerHeight + ((window.innerWidth / 1366) * 30) })
+    this.setState({ point: (this.container.offsetTop + this.container.offsetHeight - global.innerHeight) + ((global.innerWidth / 1366) * 30) })
   }
 
   handleScroll () {
     const { point } = this.state
 
-    if (window.pageYOffset > point && !this.state.isAbsolute ) {
+    if (global.pageYOffset > point && !this.state.isAbsolute ) {
       this.setState({ isAbsolute: true })
     }
 
-    if (window.pageYOffset < point && this.state.isAbsolute) {
+    if (global.pageYOffset < point && this.state.isAbsolute) {
       this.setState({ isAbsolute: false })
     }
   }
 
   render() {
-    const sidebarStyles = {
-      top: (this.state.isAbsolute && !isMobile()) ? this.state.point : null
-    }
-
     const refRateWindow = {
       isOpen: this.state.rateWindow.isOpen,
       toggle: this.handleToggleRateWindow
@@ -80,31 +76,35 @@ export default class extends Component {
 
     return (
       <div className="Container Container_top-negative" ref={el => this.container = el }>
-        <div className={classNames('Sidebar', {
+        <div className={classNames('Sidebar', 'Sidebar_person', {
           'Sidebar_absolute': this.state.isAbsolute && !isMobile()
-        })} style={ sidebarStyles }>
-          <div className="Sidebar__bg">
-            <img className="Sidebar__bg-img" src="/assets/img/persons/01.png" alt=""/>
-            <div className="Sidebar__bg-overlay"></div>
-          </div>
-          {!isMobile ? 
-            (<div className="Sidebar__share Sidebar__share_absolute Text">
-              Поделиться:
-              <a href="" className="Link Link_light Link_single">Фейсбук</a>
-              <a href="" className="Link Link_light Link_single">Вконтакте</a> 
-              <a href="" className="Link Link_light Link_single">Твиттер</a>
-            </div>)
-          : (<button type="button" className="Sidebar__share Sidebar__share_button Sidebar__share_absolute Text">
-            Поделиться
-          </button>)
-          }
-          <h1 className="Head Sidebar__head">Юлия<br/>Шахновская</h1>
-          <div className="Sidebar__footer Text">
-            <div className="Sidebar__getlinks">
-              <a href="" className="Link Link_light">Получить ссылку на&nbsp;аукцион</a>
+        })} style={{
+          top: (this.state.isAbsolute && !isMobile()) ? this.state.point - ((global.innerWidth / 1366) * 100) : null
+        }}>
+          <div className="Sidebar__body">
+            <div className="Sidebar__bg">
+              <img className="Sidebar__bg-img" src="/assets/img/persons/01.png" alt=""/>
+              <div className="Sidebar__bg-overlay"></div>
             </div>
-            <div className="Sidebar__profile">
-              <a href="" className="Link Link_light">Профиль Юлии в Фейсбуке</a>
+            {!isMobile() ? 
+              (<div className="Sidebar__share Sidebar__share_absolute Text">
+                Поделиться:
+                <a href="" className="Link Link_light Link_single">Фейсбук</a>
+                <a href="" className="Link Link_light Link_single">Вконтакте</a> 
+                <a href="" className="Link Link_light Link_single">Твиттер</a>
+              </div>)
+            : (<button type="button" className="Sidebar__share Sidebar__share_button Sidebar__share_absolute Text">
+              Поделиться
+            </button>)
+            }
+            <h1 className="Head Sidebar__head Sidebar__head_bottom">Юлия<br/>Шахновская</h1>
+            <div className="Sidebar__footer Sidebar__footer_person Text">
+              <div className="Sidebar__getlinks Sidebar__getlinks_person">
+                <a href="" className="Link Link_light">Получить ссылку на&nbsp;аукцион</a>
+              </div>
+              <div className="Sidebar__profile">
+                <a href="" className="Link Link_light">Профиль Юлии в Фейсбуке</a>
+              </div>
             </div>
           </div>
         </div>

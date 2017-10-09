@@ -24,14 +24,14 @@ export default class extends Component {
   }
 
   componentDidMount () {
-    window.addEventListener('scroll', this.handleScroll)
-    window.addEventListener('resize', this.calcPoint)
+    global.addEventListener('scroll', this.handleScroll)
+    global.addEventListener('resize', this.calcPoint)
     this.calcPoint()
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('resize', this.calcPoint)
+    global.removeEventListener('scroll', this.handleScroll)
+    global.removeEventListener('resize', this.calcPoint)
     this.calcPoint()
   }
 
@@ -40,63 +40,59 @@ export default class extends Component {
   }
 
   calcPoint () {
-    this.setState({ point: this.container.offsetTop + this.container.offsetHeight - window.innerHeight + ((window.innerWidth / 1366) * 30) })
+    this.setState({ point: (this.container.offsetTop + this.container.offsetHeight - global.innerHeight) + ((global.innerWidth / 1366) * 30) })
   }
 
   handleScroll () {
     const { point } = this.state
 
-    if (window.pageYOffset > point && !this.state.isAbsolute ) {
+    if (global.pageYOffset > point && !this.state.isAbsolute ) {
       this.setState({ isAbsolute: true })
     }
 
-    if (window.pageYOffset < point && this.state.isAbsolute) {
+    if (global.pageYOffset < point && this.state.isAbsolute) {
       this.setState({ isAbsolute: false })
     }
   }
 
   render() {
-    const sidebarClasses = classNames({
-      'Sidebar': true,
-      'Sidebar_absolute': this.state.isAbsolute && !isMobile()
-    })
-
-    const sidebarStyles = {
-      top: this.state.isAbsolute && !isMobile() ? this.state.point : null
-    }
-
     return (
       <div className="Container Container_top-negative" ref={el => this.container = el }>
-        <div className={ sidebarClasses } style={ sidebarStyles }>
-          <div className="Sidebar__bg">
-            <img className="Sidebar__bg-img" src={this.state.persons[0].photo} alt={this.state.persons[0].name}/>
-            <div className="Sidebar__bg-overlay"></div>
-          </div>
-          {!isMobile ? 
-            <div className="Sidebar__share Sidebar__share_absolute Text">
-              Поделиться:
-              <a href="" className="Link Link_light Link_single">Фейсбук</a>
-              <a href="" className="Link Link_light Link_single">Вконтакте</a> 
-              <a href="" className="Link Link_light Link_single">Твиттер</a>
+        <div className={classNames('Sidebar', 'Sidebar_person', {
+          'Sidebar_absolute': this.state.isAbsolute && !isMobile()
+        })} style={{
+          top: (this.state.isAbsolute && !isMobile()) ? this.state.point - ((global.innerWidth / 1366) * 100) : null
+        }}>
+          <div className="Sidebar__body">
+            <div className="Sidebar__bg">
+              <img className="Sidebar__bg-img" src="/assets/img/persons/01.png" alt=""/>
+              <div className="Sidebar__bg-overlay"></div>
             </div>
-          :
-          <button type="button" className="Sidebar__share Sidebar__share_button Sidebar__share_absolute Text">
-            Поделиться
-          </button>
-          }
-          <h1 className="Head Sidebar__head">{this.state.persons[0].name}</h1>
-          <div className="Sidebar__footer Text">
-            <div className="Sidebar__getlinks">
-              <a href="" className="Link Link_light">Получить ссылку на&nbsp;лот</a>
-            </div>
-            <div className="Sidebar__profile">
-              <a href="" className="Link Link_light">Профиль Константина в Фейсбуке</a>
+            {!isMobile() ? 
+              (<div className="Sidebar__share Sidebar__share_absolute Text">
+                Поделиться:
+                <a href="" className="Link Link_light Link_single">Фейсбук</a>
+                <a href="" className="Link Link_light Link_single">Вконтакте</a> 
+                <a href="" className="Link Link_light Link_single">Твиттер</a>
+              </div>)
+            : (<button type="button" className="Sidebar__share Sidebar__share_button Sidebar__share_absolute Text">
+              Поделиться
+            </button>)
+            }
+            <h1 className="Head Sidebar__head Sidebar__head_bottom">Юлия<br/>Шахновская</h1>
+            <div className="Sidebar__footer Sidebar__footer_person Text">
+              <div className="Sidebar__getlinks Sidebar__getlinks_person">
+                <a href="" className="Link Link_light">Получить ссылку на страницу участника</a>
+              </div>
+              <div className="Sidebar__profile">
+                <a href="" className="Link Link_light">Профиль Юлии в Фейсбуке</a>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="Main">
-          <h1 className="Main__title SubHead">С участием Константина собрано 700 000 ₽</h1>
+          <h1 className="Main__title SubHead">С участием Константина собрано <nobr>700 000 ₽</nobr></h1>
           <div className="Text Main__founds-list">
             <div className="Main__founds-item">
               <span className="Main__founds-price">1 150 000 ₽</span>

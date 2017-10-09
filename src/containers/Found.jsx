@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import classNames from 'classnames'
+import classes from 'classnames'
 
 import Person from './../components/Person'
+import isMobile from './../helpers/isMobile'
 import db from './../db'
 
 export default class extends Component {
@@ -23,14 +24,14 @@ export default class extends Component {
   }
 
   componentDidMount () {
-    window.addEventListener('scroll', this.handleScroll)
-    window.addEventListener('resize', this.calcPoint)
+    global.addEventListener('scroll', this.handleScroll)
+    global.addEventListener('resize', this.calcPoint)
     this.calcPoint()
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('resize', this.calcPoint)
+    global.removeEventListener('scroll', this.handleScroll)
+    global.removeEventListener('resize', this.calcPoint)
     this.calcPoint()
   }
 
@@ -39,36 +40,30 @@ export default class extends Component {
   }
 
   calcPoint () {
-    let point = this.container.offsetTop + this.container.offsetHeight - window.innerHeight
-    this.setState({ point: point + ((window.innerWidth / 1366) * 30) })
+    this.setState({ point: (this.container.offsetTop + this.container.offsetHeight - global.innerHeight) + ((global.innerWidth / 1366) * 30) })
   }
 
   handleScroll () {
     const { point } = this.state
 
-    if (window.pageYOffset > point && !this.state.isAbsolute ) {
+    if (global.pageYOffset > point && !this.state.isAbsolute ) {
       this.setState({ isAbsolute: true })
     }
 
-    if (window.pageYOffset < point && this.state.isAbsolute) {
+    if (global.pageYOffset < point && this.state.isAbsolute) {
       this.setState({ isAbsolute: false })
     }
   }
 
   render() {
-    const sidebarClasses = classNames({
-      'Sidebar': true,
-      'Sidebar_absolute': this.state.isAbsolute
-    })
-
-    const sidebarStyles = {
-      top: this.state.isAbsolute ? this.state.point : null
-    }
-
     return (
       <div className="Container Container_top-negative" ref={el => this.container = el } >
-        <div className={ sidebarClasses } style={ sidebarStyles }>
-          <h1 className="Head">Благо&shy;твори&shy;тельный фонд Константина Хабенского</h1>
+        <div className={classes('Sidebar', {
+          'Sidebar_absolute': this.state.isAbsolute && !isMobile()
+        })} style={{
+          top: (this.state.isAbsolute && !isMobile()) ? this.state.point - ((global.innerWidth / 1366) * 100) : null
+        }}>
+          <h1 className="Sidebar__head Head">Благо&shy;твори&shy;тельный фонд Константина Хабенского</h1>
           <div className="Sidebar__footer Text">
             <div className="Sidebar__share">
               Поделиться:

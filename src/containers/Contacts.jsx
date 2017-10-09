@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import timeout from './../helpers/rAF'
 
 import Form from './../components/ContacsForm'
 
@@ -16,21 +15,19 @@ export default class extends Component {
   }
 
   openForm () {
-    document.body.classList.add('is-freeze')
-
     this.setState({
       formIsActive: true
     })
+
+    global.freezeBody()
   }
 
   closeForm () {
-    timeout(() => {
-      document.body.classList.remove('is-freeze')
-    }, 400)
-
     this.setState({
       formIsActive: false
     })
+
+    global.unfreezeBody()
   }
 
   render() {

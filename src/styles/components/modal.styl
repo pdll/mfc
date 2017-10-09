@@ -1,0 +1,82 @@
+.modal
+  position fixed
+  left 0
+  right 0
+  top 0
+  bottom 0
+  padding 90px 0
+  box-sizing border-box
+  background-color $orange
+  z-index 999
+  color $white
+  visibility hidden
+  transform translate3d(0, 100%, 0)
+  will-change transform
+  transition transform 400ms ease, visibility 0ms 400ms
+  overflow-y scroll
+  -webkit-overflow-scrolling touch
+  @media $large
+    padding vw(90) 0
+  &_active
+    transition-delay 0ms
+    visibility visible
+    transform translate3d(0, 0, 0)
+  &__close-button
+    display block
+    position absolute
+    color $white
+    width 40px
+    top 20px
+    right 10px
+    @media $medium
+      right 15px
+    @media $large
+      width vw(85)
+      top vw(20)
+      right vw(20)
+  &__body
+    margin 0 auto
+    padding 0 20px
+    @media $medium
+      padding 0 30px
+    @media $large
+      padding 0
+      max-width vw(950)
+  &__field
+    margin-bottom 50px
+    @media $large
+      margin-bottom vw(50)
+    &:last-of-type
+      margin-bottom 0
+  &__form
+    display flex
+    align-items flex-end
+    margin 100px 0 50px
+    @media $large
+      margin vw(100) 0 vw(50)
+      max-width 75%
+  &__textarea
+    flex 0 1 100%
+  &__submit
+    font-size 53px
+    line-height 45px
+    right 0
+    top 0
+    color $white
+    @media $large
+      font-size vw(62)
+      line-height vw(45) // base line-height + border
+  &__photos-label
+    position relative
+    display table
+  &__photos-field
+    cursor pointer
+    position absolute
+    display block
+    top 0
+    bottom 0
+    left 0
+    right 0
+    font-size 0
+    opacity 0
+    

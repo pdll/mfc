@@ -28,6 +28,7 @@ import Partners from './containers/Partners'
 import News from './containers/News'
 import Article from './containers/Article'
 import Profile from './containers/Profile'
+import NotFound from './containers/404'
 
 export default class extends Component {
   constructor(props) {
@@ -42,27 +43,16 @@ export default class extends Component {
       isHalfLight: false,
       isMenuOpen: false,
       verticalScroll: 0,
-      container: null
+      container: null,
+      isOverlap: false
     }
 
     this.handleCloseSigin = this.handleCloseSigin.bind(this)
     this.handleOpenSigin = this.handleOpenSigin.bind(this)
     this.handleCloseSearch = this.handleCloseSearch.bind(this)
     this.handleOpenSearch = this.handleOpenSearch.bind(this)
-    this.freezeBody = this.freezeBody.bind(this)
-    this.unfreezeBody = this.unfreezeBody.bind(this)
     this.handleMenuOpen = this.handleMenuOpen.bind(this)
     this.handleMenuClose = this.handleMenuClose.bind(this)
-  }
-
-  freezeBody () {
-    document.body.classList.add('is-freeze')
-  }
-
-  unfreezeBody () {
-    timeout(() => {
-      document.body.classList.remove('is-freeze')
-    }, 400)
   }
 
   handleCloseSigin () {
@@ -76,7 +66,7 @@ export default class extends Component {
       })
     }, 400)
 
-    this.unfreezeBody()
+    window.unfreezeBody()
   }
 
   handleOpenSigin () {
@@ -85,7 +75,7 @@ export default class extends Component {
       removeDelay: true
     })
 
-    this.freezeBody()
+    window.freezeBody()
 
   }
 
@@ -98,7 +88,7 @@ export default class extends Component {
       })
     }, 400)
 
-    this.unfreezeBody()
+    window.unfreezeBody()
   }
 
   handleOpenSearch () {
@@ -107,7 +97,7 @@ export default class extends Component {
       removeDelay: true
     })
 
-    this.freezeBody()
+    window.freezeBody()
   }
 
   handleMenuClose () {
@@ -119,7 +109,7 @@ export default class extends Component {
       })
     }, 400)
 
-    this.unfreezeBody()
+    window.unfreezeBody()
   }
 
   handleMenuOpen () {
@@ -128,12 +118,11 @@ export default class extends Component {
       removeDelay: true
     })
 
-    this.freezeBody()
+    window.freezeBody()
   }
 
   componentDidMount() {
     const self = this
-    const $body = document.body
 
     // Routing
     // ------------------------------------------------------------------------
@@ -141,19 +130,28 @@ export default class extends Component {
       if (ctx.init) {
         next()
       } else {
-        $body.classList.add('is-animate')
-        self.freezeBody()
+        document.body.classList.add('is-animate')
+        window.freezeBody(true)
 
         timeout(() => {
           window.scrollTo(0, 0)
         }, 300)
 
         timeout(() => {
-          $body.classList.remove('is-animate')
-          self.unfreezeBody()
+          document.body.classList.remove('is-animate')
+          window.unfreezeBody(true)
           next()
         }, 400)
       }
+    })
+
+    page('/404', () => {
+      self.setState({
+        container: <NotFound />,
+        isIndex: false,
+        isLight: true,
+        isHalfLight: false
+      })
     })
 
     page('/', (ctx) => {
@@ -272,6 +270,20 @@ export default class extends Component {
       self.setState({ verticalScroll: window.scrollY })
     }
 
+    window.freezeBody = function (isStatic) {
+      if(!isStatic) self.setState({ isOverlap: true })
+        
+      document.body.classList.add('is-freeze')
+    }
+
+    window.unfreezeBody = function (isStatic) {
+      if(!isStatic) self.setState({ isOverlap: false })
+
+      timeout(() => {
+        document.body.classList.remove('is-freeze')
+      }, 400)
+    }
+
     decouple(window, 'scroll', windowScrollHandler)
   }
 
@@ -296,7 +308,7 @@ export default class extends Component {
 
         <Header
           isIndex={ this.state.isIndex }
-          isDisable={ this.state.isSignin || this.state.isSearch }
+          isDisable={ this.state.isOverlap }
           verticalScroll={ this.state.verticalScroll }
           handleMenuOpen={ this.handleMenuOpen }
           onOpenSearch={ this.handleOpenSearch }

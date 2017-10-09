@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import classNames from 'classnames'
 
 import Person from './../components/Person'
+import Report from './../components/Report'
+import Edit from './../components/EditProfile'
 import isMobile from './../helpers/isMobile'
 import db from './../db'
 
@@ -14,24 +16,28 @@ export default class extends Component {
     this.handleScroll = this.handleScroll.bind(this)
     this.calcPoint = this.calcPoint.bind(this)
     this.handleImagesLoad = this.handleImagesLoad.bind(this)
+    this.toggleReport = this.toggleReport.bind(this)
+    this.toggleEdit = this.toggleEdit.bind(this)
   }
 
   componentWillMount () {
      this.setState({
       isAbsolute: false,
-      point: 0
+      point: 0,
+      isReportActive: false,
+      isEditActive: false
     })
   }
 
   componentDidMount () {
-    window.addEventListener('scroll', this.handleScroll)
-    window.addEventListener('resize', this.calcPoint)
+    global.addEventListener('scroll', this.handleScroll)
+    global.addEventListener('resize', this.calcPoint)
     this.calcPoint()
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('resize', this.calcPoint)
+    global.removeEventListener('scroll', this.handleScroll)
+    global.removeEventListener('resize', this.calcPoint)
     this.calcPoint()
   }
 
@@ -39,34 +45,60 @@ export default class extends Component {
     this.calcPoint()
   }
 
+  toggleReport() {
+    this.setState(prevState => ({
+      isReportActive: !prevState.isReportActive
+    }), () => {
+      this.state.isReportActive ? global.freezeBody() : global.unfreezeBody()
+    })
+  }
+
+  toggleEdit() {
+    this.setState(prevState => ({
+      isEditActive: !prevState.isEditActive
+    }), () => {
+      this.state.isEditActive ? global.freezeBody() : global.unfreezeBody()
+    }) 
+  }
+
   calcPoint () {
-    this.setState({ point: this.container.offsetTop + this.container.offsetHeight - window.innerHeight + ((window.innerWidth / 1366) * 30) })
+    this.setState({ point: (this.container.offsetTop + this.container.offsetHeight - global.innerHeight) + ((global.innerWidth / 1366) * 30) })
   }
 
   handleScroll () {
     const { point } = this.state
 
-    if (window.pageYOffset > point && !this.state.isAbsolute ) {
+    if (global.pageYOffset > point && !this.state.isAbsolute ) {
       this.setState({ isAbsolute: true })
     }
 
-    if (window.pageYOffset < point && this.state.isAbsolute) {
+    if (global.pageYOffset < point && this.state.isAbsolute) {
       this.setState({ isAbsolute: false })
     }
   }
 
   render() {
+    const refReport = {
+      toggle: this.toggleReport,
+      state: this.state.isReportActive
+    }
+
+    const refEdit = {
+      toggle: this.toggleEdit,
+      state: this.state.isEditActive
+    }
+
     return (
       <div className="Container Container_top-negative" ref={el => this.container = el }>
         <div className={classNames('Sidebar', 'Sidebar_profile', {
           'Sidebar_absolute': this.state.isAbsolute && !isMobile()
         })} style={{
-          'top': (this.state.isAbsolute && !isMobile()) ? this.state.point : null
+          top: (this.state.isAbsolute && !isMobile()) ? this.state.point - ((global.innerWidth / 1366) * 100) : null
         }}>
-          <h1 className="Head Sidebar__head Sidebar__head_top">Вы пожертвовали <nobr>33 700 000 ₽</nobr></h1>
-          <div className="Sidebar__footer Text Sidebar__footer_profile">
+          <h1 className="Head Sidebar__head">Вы пожертвовали <nobr>33 700 000 ₽</nobr></h1>
+          <div className="Sidebar__footer Text">
             <div className="Sidebar__getlinks">
-              <a href="" className="Link Link_light">Редактировать профиль</a>
+              <button className="Link Link_light" onClick={this.toggleEdit}>Редактировать профиль</button>
             </div>
             <div className="Sidebar__profile">
               <a href="" className="Link Link_light">Стать лотом</a>
@@ -87,7 +119,7 @@ export default class extends Component {
                 price = {this.state.persons[0].price}
                 url = {this.state.persons[0].url} />
             </div>
-            <button className="Button Button_black">Добавить отчет</button>
+            <button className="Button Button_black" onClick={this.toggleReport}>Добавить отчет</button>
           </section>
           <section className="Main__auction">
             <h1 className="SubHead">Активный аукционы</h1>
@@ -142,6 +174,8 @@ export default class extends Component {
             <button className="Button Button_black">Показать ещё</button>
           </div>
         </div>
+        <Report refReport={refReport}/>
+        <Edit refEdit={refEdit}/>
       </div>
     )
   }
