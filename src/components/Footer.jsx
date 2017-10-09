@@ -7,6 +7,7 @@ export default () => (
       <div className="Footer__col">
         MeetForCharity © 2017
         <br /><a href="" className="Footer__link">Оферта</a>
+        <br /><a href="/about" className="Footer__link">О нас</a>
       </div>
       <div className="Footer__col">
         <Link to="/person" className="Footer__link Footer__link_spaced">Аукционы</Link>

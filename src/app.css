@@ -1880,6 +1880,9 @@ button {
     top: 7.3206vw;
     bottom: auto;
   }
+  .About .Sidebar__head {
+    top: 10.981vw;
+  }
 }
 .Sidebar__head_bottom {
   width: 100%;
@@ -3241,6 +3244,53 @@ button {
   .NotFound__caption {
     font-size: 3.6603vw;
   }
+}
+.About {
+  margin-top: -80px;
+}
+@media screen and (min-width: 1025px) {
+  .About {
+    margin-top: 0;
+  }
+}
+.About__caption {
+  margin-bottom: 10.981vw;
+}
+.About__caption:last-child {
+  margin-bottom: 0;
+}
+.About__caption_last {
+  margin-bottom: 3.6603vw;
+}
+.About__list {
+  position: absolute;
+  top: 21.9619vw;
+  right: 3.6603vw;
+  left: 0;
+}
+.About__item {
+  font-size: 2.1962vw;
+  margin-top: 2.9283vw;
+  will-change: opacity;
+  transition: opacity 200ms ease;
+  opacity: 0.2;
+}
+.About__item:first-of-type {
+  margin-top: 0;
+}
+.About__item_current {
+  opacity: 1;
+}
+.About__step-list {
+  margin: 0 -1.8302vw;
+}
+.About__step {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 50%;
+  vertical-align: top;
+  margin-bottom: 3.6603vw;
+  padding: 0 1.8302vw;
 }
 html,
 body {

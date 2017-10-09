@@ -29,6 +29,7 @@ import News from './containers/News'
 import Article from './containers/Article'
 import Profile from './containers/Profile'
 import NotFound from './containers/404'
+import About from './containers/About'
 
 export default class extends Component {
   constructor(props) {
@@ -256,6 +257,15 @@ export default class extends Component {
     page('/profile', (ctx) => {
       self.setState({
         container: <Profile />,
+        isIndex: false,
+        isLight: false,
+        isHalfLight: true
+      })
+    })
+
+    page('/about', (ctx) => {
+      self.setState({
+        container: <About />,
         isIndex: false,
         isLight: false,
         isHalfLight: true
